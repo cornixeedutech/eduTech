@@ -137,7 +137,7 @@ export default function CoursesDashboard() {
               {/* ACTIONS */}
               <div className="flex gap-2 mt-4">
                 <Link
-                  href={`/admin/courses/${course._id}`}
+                  href={`/cornixeAdminTech/courses/${course._id}`}
                   className="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm"
                 >
                   Edit
