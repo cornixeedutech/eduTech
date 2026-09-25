@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import StudentQueryForm from "../Form/StudentQueryForm";
 
 import {
   Crown,
@@ -12,6 +14,7 @@ import {
 } from "lucide-react";
 
 export default function GoldenPassHero() {
+  const [openForm, setOpenForm] = useState(false);
 
   const plans = [
     {
@@ -42,11 +45,9 @@ export default function GoldenPassHero() {
         relative overflow-hidden
         py-12 md:py-24
         px-5 md:px-8
-        
       "
     >
 
-    
       {/* 🔥 BLURS */}
       <div
         className="
@@ -206,19 +207,17 @@ export default function GoldenPassHero() {
                     text-(--color-black-1)
                   "
                 >
-                  Learn Without
-                 
-{" "}
+                  Learn Without{" "}
+
                   <span
                     className="
                       bg-gradient-to-r
                       from-(--color-primary)
-                      
                       to-(--color-secondary)
                       text-transparent bg-clip-text
                     "
                   >
-                     Any Limits
+                    Any Limits
                   </span>
                 </h1>
 
@@ -314,6 +313,7 @@ export default function GoldenPassHero() {
                       >
                         {plan.courses}
                       </p>
+
                     </div>
                   </motion.div>
                 ))}
@@ -397,6 +397,7 @@ export default function GoldenPassHero() {
 
                 {/* JOIN */}
                 <button
+                  onClick={() => setOpenForm(true)}
                   className="
                     group
                     relative overflow-hidden
@@ -405,7 +406,7 @@ export default function GoldenPassHero() {
                     rounded-2xl
                     font-semibold
                     text-white
-                 bg-secondary
+                    bg-secondary
                     hover:scale-[1.03]
                     transition-all duration-300
                     shadow-[0_10px_35px_rgba(0,102,255,0.22)]
@@ -435,7 +436,9 @@ export default function GoldenPassHero() {
                       transition
                     "
                   />
+
                 </button>
+
               </div>
             </div>
 
@@ -446,7 +449,6 @@ export default function GoldenPassHero() {
                 overflow-hidden
                 bg-gradient-to-b
                 from-(--color-primary)
-               
                 to-(--color-secondary)
                 flex items-center justify-center
               "
@@ -520,11 +522,19 @@ export default function GoldenPassHero() {
                 >
                   ACCESS
                 </p>
+
               </div>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* EXISTING STUDENT QUERY FORM */}
+      <StudentQueryForm
+        isOpen={openForm}
+        onClose={() => setOpenForm(false)}
+      />
+
     </section>
   );
 }

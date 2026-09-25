@@ -20,25 +20,21 @@ const responsibilities = [
     title: "Brand Promotion",
     desc: "Promote the CORNIXE brand among students and campus communities.",
   },
-
   {
     icon: <CalendarDays size={22} />,
     title: "Campus Events",
     desc: "Organize and support workshops, seminars, and college activities.",
   },
-
   {
     icon: <GraduationCap size={22} />,
     title: "Program Awareness",
     desc: "Create awareness about programs, internships, and certifications.",
   },
-
   {
     icon: <Users size={22} />,
     title: "Community Engagement",
     desc: "Drive student registrations and increase engagement on campus.",
   },
-
   {
     icon: <BadgeCheck size={22} />,
     title: "Company Representation",
@@ -71,7 +67,10 @@ export default function CampusAmbassadorSection() {
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-secondary/20 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+        {/* MAIN TWO COLUMN CONTENT */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+
           {/* LEFT CONTENT */}
           <motion.div
             initial={{
@@ -91,6 +90,7 @@ export default function CampusAmbassadorSection() {
           >
             {/* HEADING */}
             <div className="flex items-start gap-5">
+
               <div
                 className="
                   w-2 md:w-3
@@ -100,6 +100,7 @@ export default function CampusAmbassadorSection() {
                   from-primary
                   to-secondary
                   mt-2
+                  shrink-0
                 "
               />
 
@@ -218,14 +219,11 @@ export default function CampusAmbassadorSection() {
                   className="
                     px-5 py-3
                     rounded-2xl
-
                     border border-white/10
                     bg-white/10
                     backdrop-blur-xl
-
                     text-black-1
                     font-semibold
-
                     shadow-[0_10px_40px_rgba(0,0,0,0.08)]
                   "
                 >
@@ -233,8 +231,6 @@ export default function CampusAmbassadorSection() {
                 </div>
               ))}
             </motion.div>
-
-           
           </motion.div>
 
           {/* RIGHT IMAGE */}
@@ -253,7 +249,14 @@ export default function CampusAmbassadorSection() {
             transition={{
               duration: 0.8,
             }}
-            className="relative"
+            className="
+              relative
+              px-6
+              pb-12
+              sm:px-8
+              lg:px-8
+              lg:pb-14
+            "
           >
             {/* MAIN CARD */}
             <motion.div
@@ -268,11 +271,9 @@ export default function CampusAmbassadorSection() {
                 relative
                 rounded-[2.5rem]
                 overflow-hidden
-
                 border border-white/20
                 bg-white/10
                 backdrop-blur-2xl
-
                 shadow-[0_25px_100px_rgba(0,0,0,0.18)]
               "
             >
@@ -280,7 +281,8 @@ export default function CampusAmbassadorSection() {
                 src={CampusImage}
                 alt="Campus Ambassador"
                 className="
-                  w-full h-auto
+                  w-full
+                  aspect-[4/3]
                   object-cover
                 "
                 priority
@@ -313,13 +315,12 @@ export default function CampusAmbassadorSection() {
                 <div
                   className="
                     relative
-                    w-28 h-28
+                    w-20 h-20
+                    sm:w-24 sm:h-24
+                    md:w-28 md:h-28
                     rounded-full
-
                     bg-white
-
                     shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-
                     flex items-center justify-center
                   "
                 >
@@ -355,15 +356,17 @@ export default function CampusAmbassadorSection() {
                 duration: 3,
               }}
               className="
-                absolute -top-6 -left-6
-
+                absolute
+                -top-4
+                left-0
+                sm:-left-4
+                lg:-left-6
                 rounded-3xl
                 border border-white/10
                 bg-white/10
                 backdrop-blur-2xl
-
-                px-6 py-5
-
+                px-5 py-4
+                sm:px-6 sm:py-5
                 shadow-[0_15px_50px_rgba(0,0,0,0.12)]
               "
             >
@@ -374,7 +377,7 @@ export default function CampusAmbassadorSection() {
               <h4
                 className="
                   mt-1
-                  text-3xl
+                  text-2xl sm:text-3xl
                   font-black
                   text-black-1
                 "
@@ -393,15 +396,17 @@ export default function CampusAmbassadorSection() {
                 duration: 4,
               }}
               className="
-                absolute -bottom-6 -right-6
-
+                absolute
+                -bottom-4
+                right-0
+                sm:-right-4
+                lg:-right-6
                 rounded-3xl
                 border border-white/10
                 bg-white/10
                 backdrop-blur-2xl
-
-                px-6 py-5
-
+                px-5 py-4
+                sm:px-6 sm:py-5
                 shadow-[0_15px_50px_rgba(0,0,0,0.12)]
               "
             >
@@ -412,7 +417,7 @@ export default function CampusAmbassadorSection() {
               <h4
                 className="
                   mt-1
-                  text-3xl
+                  text-2xl sm:text-3xl
                   font-black
                   text-black-1
                 "
@@ -422,118 +427,130 @@ export default function CampusAmbassadorSection() {
             </motion.div>
           </motion.div>
         </div>
-         {/* RESPONSIBILITIES */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.5,
-                duration: 0.8,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="mt-14"
-            >
-              <h3
+
+        {/* RESPONSIBILITIES */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.5,
+            duration: 0.8,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="
+            mt-24
+            lg:mt-28
+          "
+        >
+          <h3
+            className="
+              text-2xl md:text-3xl
+              pt-6
+              font-black
+              text-black-1
+            "
+          >
+            Key Responsibilities
+          </h3>
+
+          <div
+            className="
+              mt-8
+              grid
+              sm:grid-cols-2
+              lg:grid-cols-3
+              gap-5
+            "
+          >
+            {responsibilities.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{
+                  y: -6,
+                }}
                 className="
-                  text-2xl md:text-3xl pt-6
-                  font-black
-                  text-black-1
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-3xl
+                  border border-white/10
+                  bg-white/10
+                  backdrop-blur-2xl
+                  p-5
+                  shadow-[0_15px_50px_rgba(0,0,0,0.08)]
+                  transition-all duration-500
                 "
               >
-                Key Responsibilities
-              </h3>
+                {/* HOVER GRADIENT */}
+                <div
+                  className="
+                    absolute inset-0
+                    opacity-0
+                    group-hover:opacity-100
+                    transition duration-500
+                    bg-gradient-to-br
+                    from-primary/10
+                    via-transparent
+                    to-secondary/10
+                  "
+                />
 
-              <div className="mt-8 grid sm:grid-cols-2 gap-5">
-                {responsibilities.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{
-                      y: -6,
-                    }}
+                <div className="relative z-10">
+
+                  {/* ICON */}
+                  <div
                     className="
-                      group
-                      relative overflow-hidden
-
-                      rounded-3xl
-                      border border-white/10
-                      bg-white/10
-                      backdrop-blur-2xl
-
-                      p-5
-
-                      shadow-[0_15px_50px_rgba(0,0,0,0.08)]
-
-                      transition-all duration-500
+                      w-14 h-14
+                      rounded-2xl
+                      bg-gradient-to-r
+                      from-primary
+                      to-secondary
+                      flex items-center justify-center
+                      text-white
+                      shadow-lg
                     "
                   >
-                    {/* HOVER GRADIENT */}
-                    <div
-                      className="
-                        absolute inset-0
-                        opacity-0
-                        group-hover:opacity-100
-                        transition duration-500
+                    {item.icon}
+                  </div>
 
-                        bg-gradient-to-br
-                        from-primary/10
-                        via-transparent
-                        to-secondary/10
-                      "
-                    />
+                  {/* TITLE */}
+                  <h4
+                    className="
+                      mt-5
+                      text-lg
+                      font-bold
+                      text-black-1
+                    "
+                  >
+                    {item.title}
+                  </h4>
 
-                    <div className="relative z-10">
-                      <div
-                        className="
-                          w-14 h-14
-                          rounded-2xl
+                  {/* DESCRIPTION */}
+                  <p
+                    className="
+                      mt-3
+                      text-sm
+                      leading-relaxed
+                      text-gray-2
+                    "
+                  >
+                    {item.desc}
+                  </p>
 
-                          bg-gradient-to-r
-                          from-primary
-                          to-secondary
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-                          flex items-center justify-center
-
-                          text-white
-                          shadow-lg
-                        "
-                      >
-                        {item.icon}
-                      </div>
-
-                      <h4
-                        className="
-                          mt-5
-                          text-lg
-                          font-bold
-                          text-black-1
-                        "
-                      >
-                        {item.title}
-                      </h4>
-
-                      <p
-                        className="
-                          mt-3
-                          text-sm
-                          leading-relaxed
-                          text-gray-2
-                        "
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
       </div>
     </section>
   );

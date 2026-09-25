@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import poster from "@/public/MBA LITE PACK.png";
 import Image from "next/image";
+
+import StudentQueryForm from "../Form/StudentQueryForm";
 
 import {
   PiBriefcaseBold,
@@ -55,55 +58,43 @@ const universities = [
 const careers = [
   {
     title: "Digital Marketing Specialist",
-
     desc:
       "Promote products via SEO, social media, and paid advertising campaigns.",
-
     side: "left",
   },
 
   {
     title: "Business Analyst",
-
     desc:
       "Analyze business data to improve efficiency and decision making.",
-
     side: "right",
   },
 
   {
     title: "Financial Analyst",
-
     desc:
       "Evaluate investments, budgets, and financial forecasting strategies.",
-
     side: "left",
   },
 
   {
     title: "Human Resources Manager",
-
     desc:
       "Manage hiring, employee relations, and organizational development.",
-
     side: "right",
   },
 
   {
     title: "Stock Market Trader",
-
     desc:
       "Buy and sell securities based on financial and market analysis.",
-
     side: "left",
   },
 
   {
     title: "Operations Manager",
-
     desc:
       "Optimize operational workflows and business productivity systems.",
-
     side: "right",
   },
 ];
@@ -136,15 +127,15 @@ const benefits = [
 ];
 
 export default function MBALitePack() {
+  const [openForm, setOpenForm] = useState(false);
+
   return (
     <section
       className="
         relative overflow-hidden
         py-24 px-6
-        
       "
     >
-
       {/* GRID */}
       <div
         className="
@@ -167,155 +158,148 @@ export default function MBALitePack() {
             relative overflow-hidden
             rounded-[40px]
             border border-white/10
-           
-            
             backdrop-blur-2xl
-           
           "
         >
-<div className=" inset-0 relative">
-  <img
-    src={poster.src}
-    alt="Background"
-    className="w-full  object-cover rounded-xl "
-  />
- </div>
-
-          
-        </div>
-<div className="  z-10 flex flex-col items-center justify-center mt-10 lg:mt-20 ">
-
-            <motion.h1
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="
-              text-center
-                text-3xl md:text-5xl
-                font-black
-                leading-tight
-                text-(--color-black-1)
-              "
-            >
-              Achieve Academic Excellence With{" "}
-
-              <span
-                className="
-                  
-                  bg-gradient-to-r
-                  from-(--color-primary)
-                  to-(--color-secondary)
-                  text-transparent bg-clip-text
-                "
-              >
-                MBA Lite Pack
-              </span>
-            </motion.h1>
-
-            {/* PRICE BOX */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              className="
-                mt-10 mx-auto
-                max-w-md
-                rounded-3xl
-                bg-[#201547]
-                  shadow-[0_15px_60px_rgba(0,0,0,0.15)]
-                border border-white/10
-                backdrop-blur-xl
-                p-6
-              "
-            >
-
-              <p className="text-white/80">
-                Unlock an{" "}
-
-                <span className="font-bold text-lg text-white">
-                  MBA Lite Bundle
-                </span>{" "}
-
-                worth <span className="line-through">₹42,500</span>
-              </p>
-
-              <h2
-                className="
-                  mt-2
-                  text-center
-                      text-4xl font-black
-                      text-white
-                       bg-clip-text
-                "
-              >
-                ₹14,999
-              </h2>
-            </motion.div>
-
-            {/* BUTTONS */}
-            <div
-              className="
-                mt-10
-                flex flex-wrap
-                items-center justify-center
-                gap-5
-              "
-            >
-
-              <button
-                className="
-                  px-10 py-4
-                  rounded-2xl
-                  bg-white
-              
-                  flex items-center justify-center gap-3
-                  text-black
-                  font-semibold
-                  shadow-xl
-                  hover:scale-105
-                  transition-all duration-300
-                "
-              >
-                <PiDownloadSimpleBold size={20} />
-                Download Brochure
-              </button>
-
-              <button
-                className="
-                  px-10 py-4
-                  rounded-2xl
-
-                  flex items-center justify-center gap-3
-                 bg-[#201547]
-                  text-white
-                  font-semibold
-                  shadow-[0_10px_40px_rgba(139,92,246,0.35)]
-                  hover:scale-105
-                  transition-all duration-300
-                "
-              >
-                Enroll Now
-                 <PiArrowRightBold
-                                  size={18}
-                                  className="
-                                    group-hover:translate-x-1
-                                    transition
-                                  "
-                                />
-              </button>
-            </div>
+          <div className="inset-0 relative">
+            <img
+              src={poster.src}
+              alt="Background"
+              className="w-full object-cover rounded-xl"
+            />
           </div>
-        
+        </div>
+
+        <div className="z-10 flex flex-col items-center justify-center mt-10 lg:mt-20">
+
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            className="
+              text-center
+              text-3xl md:text-5xl
+              font-black
+              leading-tight
+              text-(--color-black-1)
+            "
+          >
+            Achieve Academic Excellence With{" "}
+
+            <span
+              className="
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+                text-transparent bg-clip-text
+              "
+            >
+              MBA Lite Pack
+            </span>
+          </motion.h1>
+
+          {/* PRICE BOX */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.9,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+            }}
+            className="
+              mt-10 mx-auto
+              max-w-md
+              rounded-3xl
+              bg-[#201547]
+              shadow-[0_15px_60px_rgba(0,0,0,0.15)]
+              border border-white/10
+              backdrop-blur-xl
+              p-6
+            "
+          >
+            <p className="text-white/80">
+              Unlock an{" "}
+
+              <span className="font-bold text-lg text-white">
+                MBA Lite Bundle
+              </span>{" "}
+
+              worth <span className="line-through">₹42,500</span>
+            </p>
+
+            <h2
+              className="
+                mt-2
+                text-center
+                text-4xl font-black
+                text-white
+                bg-clip-text
+              "
+            >
+              ₹14,999
+            </h2>
+          </motion.div>
+
+          {/* BUTTONS */}
+          <div
+            className="
+              mt-10
+              flex flex-wrap
+              items-center justify-center
+              gap-5
+            "
+          >
+            <button
+              className="
+                px-10 py-4
+                rounded-2xl
+                bg-white
+                flex items-center justify-center gap-3
+                text-black
+                font-semibold
+                shadow-xl
+                hover:scale-105
+                transition-all duration-300
+              "
+            >
+              <PiDownloadSimpleBold size={20} />
+              Download Brochure
+            </button>
+
+            {/* ENROLL NOW */}
+            <button
+              onClick={() => setOpenForm(true)}
+              className="
+                px-10 py-4
+                rounded-2xl
+                flex items-center justify-center gap-3
+                bg-[#201547]
+                text-white
+                font-semibold
+                shadow-[0_10px_40px_rgba(139,92,246,0.35)]
+                hover:scale-105
+                transition-all duration-300
+              "
+            >
+              Enroll Now
+
+              <PiArrowRightBold
+                size={18}
+                className="
+                  group-hover:translate-x-1
+                  transition
+                "
+              />
+            </button>
+          </div>
+        </div>
 
         {/* BENEFITS */}
         <div
@@ -325,7 +309,6 @@ export default function MBALitePack() {
             gap-8
           "
         >
-
           {benefits.map((item, i) => (
             <motion.div
               key={i}
@@ -343,7 +326,6 @@ export default function MBALitePack() {
                 shadow-[0_15px_60px_rgba(0,0,0,0.15)]
               "
             >
-
               <div
                 className="
                   w-16 h-16 mx-auto
@@ -604,14 +586,13 @@ export default function MBALitePack() {
               gap-4
             "
           >
-
             <div
               className="
                 px-5 py-2
                 rounded-full
-                 bg-gradient-to-r
-                      from-(--color-primary)
-                      to-(--color-secondary)
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
                 border border-white/10
                 backdrop-blur-xl
                 text-sm font-semibold
@@ -625,13 +606,13 @@ export default function MBALitePack() {
               className="
                 px-5 py-2
                 rounded-full
-                 bg-gradient-to-r
-                      from-(--color-primary)
-                      to-(--color-secondary)
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
                 border border-white/10
                 backdrop-blur-xl
                 text-sm font-semibold
-                 text-white
+                text-white
               "
             >
               Lifetime Access
@@ -646,7 +627,6 @@ export default function MBALitePack() {
               gap-6
             "
           >
-
             {courses.map((course, i) => (
               <motion.div
                 key={i}
@@ -710,7 +690,6 @@ export default function MBALitePack() {
                     Worth ₹8500
                   </p>
 
-                  
                 </div>
               </motion.div>
             ))}
@@ -718,43 +697,42 @@ export default function MBALitePack() {
 
           {/* PRICE */}
           <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.5,
-          }}
-          className="
-            relative mt-28
-             mx-auto
-            rounded-[40px]
-            overflow-hidden
-            border border-white/10
-            bg-white/10
-            backdrop-blur-2xl
-            p-10 md:p-14
-            text-center
-          "
-        >
-
-          {/* TOP LINE */}
-          <div
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.5,
+            }}
             className="
-              absolute top-0 left-0
-              w-full h-1
-              bg-gradient-to-r
-              from-(--color-primary)
-             
-              to-(--color-secondary)
+              relative mt-28
+              mx-auto
+              rounded-[40px]
+              overflow-hidden
+              border border-white/10
+              bg-white/10
+              backdrop-blur-2xl
+              p-10 md:p-14
+              text-center
             "
-          />
+          >
 
-           <p
+            {/* TOP LINE */}
+            <div
+              className="
+                absolute top-0 left-0
+                w-full h-1
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+              "
+            />
+
+            <p
               className="
                 text-xl md:text-4xl lg:text-5xl
                 text-(--color-gray-2)
@@ -767,53 +745,59 @@ export default function MBALitePack() {
               </span>
             </p>
 
-          <p
-            className="
-              mt-5
-              font-black
-              bg-gradient-to-r
-              from-(--color-primary)
-              to-(--color-secondary)
-              text-transparent bg-clip-text
-               text-xl md:text-4xl 
-            "
-          >
-            Available At Just ₹14,999/-
-          </p>
-
-          
-
-          <button
-            className="
-              mt-8
-              group
-              inline-flex items-center gap-3
-              px-10 py-4
-              rounded-2xl
-              font-semibold
-              text-white
-              bg-gradient-to-r
-              from-(--color-primary)
-              to-(--color-secondary)
-              hover:scale-105
-              transition-all duration-300
-              shadow-[0_10px_40px_rgba(0,102,255,0.18)]
-              text-md md:text-xl
-            "
-          >
-            Apply Now
-
-            <PiArrowRightBold
-              size={18}
+            <p
               className="
-                group-hover:translate-x-1
-                transition
+                mt-5
+                font-black
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+                text-transparent bg-clip-text
+                text-xl md:text-4xl
               "
-            />
-          </button>
-        </motion.div>
+            >
+              Available At Just ₹14,999/-
+            </p>
+
+            {/* APPLY NOW */}
+            <button
+              onClick={() => setOpenForm(true)}
+              className="
+                mt-8
+                group
+                inline-flex items-center gap-3
+                px-10 py-4
+                rounded-2xl
+                font-semibold
+                text-white
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+                hover:scale-105
+                transition-all duration-300
+                shadow-[0_10px_40px_rgba(0,102,255,0.18)]
+                text-md md:text-xl
+              "
+            >
+              Apply Now
+
+              <PiArrowRightBold
+                size={18}
+                className="
+                  group-hover:translate-x-1
+                  transition
+                "
+              />
+            </button>
+          </motion.div>
         </div>
       </div>
+
+      {/* STUDENT QUERY FORM */}
+      <StudentQueryForm
+        isOpen={openForm}
+        onClose={() => setOpenForm(false)}
+      />
     </section>
   );
 }

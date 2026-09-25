@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import poster from "@/public/TECH Starter Pack .png";
 import Image from "next/image";
+
+import StudentQueryForm from "@/Components/Form/StudentQueryForm";
 
 import {
   PiArrowRightBold,
@@ -89,12 +92,13 @@ const benefits = [
 ];
 
 export default function TechStarterPack() {
+  const [openForm, setOpenForm] = useState(false);
+
   return (
     <section
       className="
         relative overflow-hidden
         py-24 px-6
-        
       "
     >
       {/* GRID */}
@@ -112,6 +116,7 @@ export default function TechStarterPack() {
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-(--color-secondary)/20 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
+
         {/* HERO */}
         <motion.div
           initial={{
@@ -129,145 +134,145 @@ export default function TechStarterPack() {
             relative overflow-hidden
             rounded-[40px]
             border border-white/10
-          
             backdrop-blur-2xl
-            
-            
           "
         >
           {/* BG GLOW */}
-          <div className=" inset-0 relative">
-  <img
-    src={poster.src}
-    alt="Background"
-    className="w-full  object-cover rounded-xl "
-  />
- </div>
-
-         
+          <div className="inset-0 relative">
+            <img
+              src={poster.src}
+              alt="Background"
+              className="w-full object-cover rounded-xl"
+            />
+          </div>
         </motion.div>
- <div className=" z-10 flex flex-col items-center justify-center mt-10 lg:mt-20">
-            {/* TITLE */}
-            <motion.h1
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+
+        <div className="z-10 flex flex-col items-center justify-center mt-10 lg:mt-20">
+
+          {/* TITLE */}
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            className="
+              text-center
+              text-3xl md:text-5xl
+              font-black
+              leading-tight
+              text-(--color-black-1)
+            "
+          >
+            Achieve Academic Excellence With{" "}
+
+            <span
               className="
-               text-center
-                text-3xl md:text-5xl
-                font-black
-                leading-tight
-                text-(--color-black-1)
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+                text-transparent
+                bg-clip-text
               "
             >
-              Achieve Academic Excellence With{" "}
-              <span
-                className="
-                
-                  bg-gradient-to-r
-                  from-(--color-primary)
-                  to-(--color-secondary)
-                  text-transparent
-                  bg-clip-text
-                "
-              >
+              Tech Starter Pack
+            </span>
+          </motion.h1>
+
+          {/* PRICE BOX */}
+          <div
+            className="
+              mt-8 mx-auto
+              max-w-md
+              rounded-3xl
+              border border-white/10
+              bg-[#201547]
+              shadow-[0_15px_60px_rgba(0,0,0,0.15)]
+              backdrop-blur-xl
+              p-6
+            "
+          >
+            <p className="text-white/80">
+              Unlock a{" "}
+
+              <span className="font-bold text-lg text-white">
                 Tech Starter Pack
-              </span>
-            </motion.h1>
+              </span>{" "}
 
-            {/* PRICE BOX */}
-            <div
+              worth <span className="line-through">₹1,20,000</span>
+            </p>
+
+            <h2
               className="
-                mt-8 mx-auto
-                max-w-md
-                rounded-3xl
-                border border-white/10
-                bg-[#201547]
-                  shadow-[0_15px_60px_rgba(0,0,0,0.15)]
-                
-                backdrop-blur-xl
-                
-                p-6
+                mt-3
+                text-5xl
+                font-black
+                text-white
+                text-center
               "
             >
-              <p className="text-white/80">
-                Unlock a{" "}
-                <span className="font-bold text-lg text-white">
-                  Tech Starter Pack
-                </span>{" "}
-                worth <span className="line-through">₹1,20,000</span>
-                
-              </p>
-
-              <h2
-                className="
-                  mt-3
-                  text-5xl
-                  font-black
-                  text-white
-                   text-center
-                "
-              >
-                ₹17,999
-              </h2>
-            </div>
-
-            {/* BUTTONS */}
-            <div
-              className="
-                mt-10
-                flex flex-wrap
-                items-center justify-center
-                gap-5
-              "
-            >
-              <button
-                className="
-                  bg-white
-                  hover:bg-gray-100
-                  text-(--color-black-1)
-                  px-10 py-4
-                  rounded-2xl
-                  font-semibold
-                    flex items-center justify-center gap-3
-                  shadow-[0_15px_60px_rgba(0,0,0,0.15)]
-                  transition-all duration-300
-                "
-              >
-                <PiDownloadSimpleBold size={20} />
-                Download Brochure
-              </button>
-
-              <button
-                className="
-                  px-10 py-4
-                  rounded-2xl
-                  flex items-center justify-center gap-3
-                 bg-[#201547]
-                  text-white
-                  font-semibold
-                  hover:scale-105
-                  transition-all duration-300
-                  shadow-[0_15px_50px_rgba(0,0,0,0.2)]
-                "
-              >
-                Enroll Now
-                  <PiArrowRightBold
-                                  size={18}
-                                  className="
-                                    group-hover:translate-x-1
-                                    transition
-                                  "
-                                />
-              </button>
-            </div>
+              ₹17,999
+            </h2>
           </div>
 
+          {/* BUTTONS */}
+          <div
+            className="
+              mt-10
+              flex flex-wrap
+              items-center justify-center
+              gap-5
+            "
+          >
+
+            {/* DOWNLOAD BROCHURE */}
+            <button
+              className="
+                bg-white
+                hover:bg-gray-100
+                text-(--color-black-1)
+                px-10 py-4
+                rounded-2xl
+                font-semibold
+                flex items-center justify-center gap-3
+                shadow-[0_15px_60px_rgba(0,0,0,0.15)]
+                transition-all duration-300
+              "
+            >
+              <PiDownloadSimpleBold size={20} />
+              Download Brochure
+            </button>
+
+            {/* ENROLL NOW */}
+            <button
+              onClick={() => setOpenForm(true)}
+              className="
+                px-10 py-4
+                rounded-2xl
+                flex items-center justify-center gap-3
+                bg-[#201547]
+                text-white
+                font-semibold
+                hover:scale-105
+                transition-all duration-300
+                shadow-[0_15px_50px_rgba(0,0,0,0.2)]
+              "
+            >
+              Enroll Now
+
+              <PiArrowRightBold
+                size={18}
+                className="
+                  group-hover:translate-x-1
+                  transition
+                "
+              />
+            </button>
+          </div>
+        </div>
 
         {/* BENEFITS */}
         <div
@@ -322,6 +327,7 @@ export default function TechStarterPack() {
 
         {/* CAREERS */}
         <div className="mt-32">
+
           <h2
             className="
               text-center
@@ -331,7 +337,9 @@ export default function TechStarterPack() {
             "
           >
             Careers after taking
-            <span className="text-(--color-primary)"> Tech Starter Pack</span>
+            <span className="text-(--color-primary)">
+              {" "}Tech Starter Pack
+            </span>
           </h2>
 
           <div
@@ -342,6 +350,7 @@ export default function TechStarterPack() {
               gap-10
             "
           >
+
             {/* CENTER LINE */}
             <div
               className="
@@ -374,6 +383,7 @@ export default function TechStarterPack() {
                   ${i % 2 !== 0 ? "md:mt-16" : ""}
                 `}
               >
+
                 {/* DOT */}
                 <div
                   className="
@@ -425,6 +435,7 @@ export default function TechStarterPack() {
 
         {/* COURSES SECTION */}
         <div className="mt-32 text-center">
+
           {/* HEADING */}
           <motion.div
             initial={{
@@ -441,21 +452,22 @@ export default function TechStarterPack() {
           >
             <h2
               className="
-        text-3xl md:text-5xl
-        font-black
-        leading-tight
-        text-(--color-black-1)
-      "
+                text-3xl md:text-5xl
+                font-black
+                leading-tight
+                text-(--color-black-1)
+              "
             >
               Explore The All Access Bundle
+
               <span
                 className="
-          block mt-2
-          bg-gradient-to-r
-          from-(--color-primary)
-          to-(--color-secondary)
-          text-transparent bg-clip-text
-        "
+                  block mt-2
+                  bg-gradient-to-r
+                  from-(--color-primary)
+                  to-(--color-secondary)
+                  text-transparent bg-clip-text
+                "
               >
                 Featuring 20+ Courses
               </span>
@@ -463,12 +475,12 @@ export default function TechStarterPack() {
 
             <p
               className="
-        mt-5
-        max-w-4xl mx-auto
-        text-lg
-        leading-relaxed
-        text-(--color-gray-2)
-      "
+                mt-5
+                max-w-4xl mx-auto
+                text-lg
+                leading-relaxed
+                text-(--color-gray-2)
+              "
             >
               Unlock industry-leading programs designed to help you build
               future-ready skills, practical expertise, and premium career
@@ -478,59 +490,59 @@ export default function TechStarterPack() {
             {/* TAGS */}
             <div
               className="
-        mt-8
-        flex flex-wrap items-center justify-center
-        gap-4
-      "
+                mt-8
+                flex flex-wrap items-center justify-center
+                gap-4
+              "
             >
               <div
                 className="
-          px-5 py-4
-          rounded-xl
-          border border-white/10
-            bg-gradient-to-r
-          from-(--color-primary)
-          to-(--color-secondary)
-          text-white
-          backdrop-blur-xl
-          text-(--color-black-1)
-          font-semibold text-sm
-          shadow-[0_8px_30px_rgba(0,0,0,0.08)]
-        "
+                  px-5 py-4
+                  rounded-xl
+                  border border-white/10
+                  bg-gradient-to-r
+                  from-(--color-primary)
+                  to-(--color-secondary)
+                  text-white
+                  backdrop-blur-xl
+                  text-(--color-black-1)
+                  font-semibold text-sm
+                  shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+                "
               >
                 Mentor Led
               </div>
 
               <div
                 className="
-          px-5 py-4
-          rounded-xl
-          border border-white/10
-          bg-gradient-to-r
-          from-(--color-primary)
-          to-(--color-secondary)
-          text-white
-          font-semibold text-sm
-          shadow-[0_8px_30px_rgba(0,0,0,0.15)]
-        "
+                  px-5 py-4
+                  rounded-xl
+                  border border-white/10
+                  bg-gradient-to-r
+                  from-(--color-primary)
+                  to-(--color-secondary)
+                  text-white
+                  font-semibold text-sm
+                  shadow-[0_8px_30px_rgba(0,0,0,0.15)]
+                "
               >
                 Lifetime Access
               </div>
 
               <div
                 className="
-          px-5 py-4
-          rounded-xl
-          border border-white/10
-            bg-gradient-to-r
-          from-(--color-primary)
-          to-(--color-secondary)
-          text-white
-          backdrop-blur-xl
-          text-(--color-black-1)
-          font-semibold text-sm
-          shadow-[0_8px_30px_rgba(0,0,0,0.08)]
-        "
+                  px-5 py-4
+                  rounded-xl
+                  border border-white/10
+                  bg-gradient-to-r
+                  from-(--color-primary)
+                  to-(--color-secondary)
+                  text-white
+                  backdrop-blur-xl
+                  text-(--color-black-1)
+                  font-semibold text-sm
+                  shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+                "
               >
                 Internship Support
               </div>
@@ -540,11 +552,11 @@ export default function TechStarterPack() {
           {/* CARDS */}
           <div
             className="
-      mt-16
-      grid sm:grid-cols-2
-      lg:grid-cols-4
-      gap-7
-    "
+              mt-16
+              grid sm:grid-cols-2
+              lg:grid-cols-4
+              gap-7
+            "
           >
             {courses.map((course, index) => {
               return (
@@ -567,82 +579,85 @@ export default function TechStarterPack() {
                     scale: 1.02,
                   }}
                   className="
-            group
-            relative overflow-hidden
-            rounded-[30px]
-            border border-white/10
-            bg-white
-            backdrop-blur-2xl
-            p-7
-            transition-all duration-500
-
-            shadow-[0_15px_60px_rgba(0,0,0,0.15)]
-            hover:border-(--color-primary)/30
-          "
+                    group
+                    relative overflow-hidden
+                    rounded-[30px]
+                    border border-white/10
+                    bg-white
+                    backdrop-blur-2xl
+                    p-7
+                    transition-all duration-500
+                    shadow-[0_15px_60px_rgba(0,0,0,0.15)]
+                    hover:border-(--color-primary)/30
+                  "
                 >
+
                   {/* HOVER GRADIENT */}
                   <div
                     className="
-              absolute inset-0
-              opacity-0
-              group-hover:opacity-100
-              transition duration-500
-              bg-gradient-to-br
-              from-(--color-primary)/10
-              via-transparent
-              to-(--color-secondary)/10
-            "
+                      absolute inset-0
+                      opacity-0
+                      group-hover:opacity-100
+                      transition duration-500
+                      bg-gradient-to-br
+                      from-(--color-primary)/10
+                      via-transparent
+                      to-(--color-secondary)/10
+                    "
                   />
 
                   {/* SHINE */}
                   <div
                     className="
-              absolute top-0 left-[-120%]
-              w-full h-full
-              bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent)]
-              group-hover:left-[120%]
-              transition-all duration-1000
-            "
+                      absolute top-0 left-[-120%]
+                      w-full h-full
+                      bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent)]
+                      group-hover:left-[120%]
+                      transition-all duration-1000
+                    "
                   />
 
                   {/* TOP CIRCLE */}
                   <div
                     className="
-              absolute -top-10 -right-10
-              w-32 h-32
-              rounded-full
-              bg-(--color-primary)/10
-              blur-3xl
-            "
+                      absolute -top-10 -right-10
+                      w-32 h-32
+                      rounded-full
+                      bg-(--color-primary)/10
+                      blur-3xl
+                    "
                   />
 
                   {/* CONTENT */}
                   <div className="relative z-10 flex flex-col items-start">
+
                     {/* ICON */}
                     <div
                       className="
-                       w-16 h-16
-                       rounded-2xl
-                       bg-gradient-to-r
-                       from-(--color-primary)
-                       to-(--color-secondary)
-                       flex items-center justify-center
-                       shadow-lg
-                     "
+                        w-16 h-16
+                        rounded-2xl
+                        bg-gradient-to-r
+                        from-(--color-primary)
+                        to-(--color-secondary)
+                        flex items-center justify-center
+                        shadow-lg
+                      "
                     >
-                      <PiSparkleFill size={26} className="text-white" />
+                      <PiSparkleFill
+                        size={26}
+                        className="text-white"
+                      />
                     </div>
 
                     {/* TITLE */}
-
                     <h3
                       className="
-                       mt-6
-                       text-xl
-                       font-black
-                       leading-snug
-                       text-(--color-black-1)
-                     "
+                        mt-6
+                        text-xl
+                        font-black
+                        leading-snug
+                        text-(--color-black-1)
+                      "
                     >
                       {course}
                     </h3>
@@ -650,11 +665,11 @@ export default function TechStarterPack() {
                     {/* PRICE */}
                     <p
                       className="
-                       mt-3
-                       text-sm
-                       font-medium
-                       text-(--color-gray-2)
-                     "
+                        mt-3
+                        text-sm
+                        font-medium
+                        text-(--color-gray-2)
+                      "
                     >
                       Worth ₹8500
                     </p>
@@ -662,39 +677,23 @@ export default function TechStarterPack() {
                     {/* BOTTOM */}
                     <div
                       className="
-                       mt-8
-                       flex items-center
-                       justify-between
-                     "
+                        mt-8
+                        flex items-center
+                        justify-between
+                      "
                     >
                       <div
                         className="
-                         px-4 py-2
-                         rounded-xl
-                         bg-light
-                         text-sm font-semibold
-                         text-(--color-black-1)
-                         backdrop-blur-xl
-                       "
+                          px-4 py-2
+                          rounded-xl
+                          bg-light
+                          text-sm font-semibold
+                          text-(--color-black-1)
+                          backdrop-blur-xl
+                        "
                       >
                         Premium Program
                       </div>
-
-                      {/* <div
-                       className="
-                         w-10 h-10
-                         rounded-xl
-                         flex items-center justify-center
-                         bg-gradient-to-r
-                         from-(--color-primary)
-                         to-(--color-secondary)
-                         text-white
-                         group-hover:rotate-45
-                         transition duration-300
-                       "
-                     >
-                       <PiArrowRightBold size={18} />
-                     </div> */}
                     </div>
                   </div>
                 </motion.div>
@@ -704,43 +703,42 @@ export default function TechStarterPack() {
 
           {/* PREMIUM CTA */}
           <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.5,
-          }}
-          className="
-            relative mt-28
-             mx-auto
-            rounded-[40px]
-            overflow-hidden
-            border border-white/10
-            bg-white/10
-            backdrop-blur-2xl
-            p-10 md:p-14
-            text-center
-          "
-        >
-
-          {/* TOP LINE */}
-          <div
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.5,
+            }}
             className="
-              absolute top-0 left-0
-              w-full h-1
-              bg-gradient-to-r
-              from-(--color-primary)
-             
-              to-(--color-secondary)
+              relative mt-28
+              mx-auto
+              rounded-[40px]
+              overflow-hidden
+              border border-white/10
+              bg-white/10
+              backdrop-blur-2xl
+              p-10 md:p-14
+              text-center
             "
-          />
+          >
 
-           <p
+            {/* TOP LINE */}
+            <div
+              className="
+                absolute top-0 left-0
+                w-full h-1
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+              "
+            />
+
+            <p
               className="
                 text-xl md:text-4xl lg:text-5xl
                 text-(--color-gray-2)
@@ -753,54 +751,61 @@ export default function TechStarterPack() {
               </span>
             </p>
 
-          <p
-            className="
-              mt-5
-              font-black
-              bg-gradient-to-r
-              from-(--color-primary)
-              to-(--color-secondary)
-              text-transparent bg-clip-text
-               text-xl md:text-4xl 
-            "
-          >
-            Available At Just ₹17,999/-
-          </p>
-
-          
-
-          <button
-            className="
-              mt-8
-              group
-              inline-flex items-center gap-3
-              px-10 py-4
-              rounded-2xl
-              font-semibold
-              text-white
-              bg-gradient-to-r
-              from-(--color-primary)
-             
-              to-(--color-secondary)
-              hover:scale-105
-              transition-all duration-300
-              shadow-[0_10px_40px_rgba(0,102,255,0.18)]
-              text-md md:text-xl
-            "
-          >
-            Apply Now
-
-            <PiArrowRightBold
-              size={18}
+            <p
               className="
-                group-hover:translate-x-1
-                transition
+                mt-5
+                font-black
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+                text-transparent bg-clip-text
+                text-xl md:text-4xl
               "
-            />
-          </button>
-        </motion.div>
+            >
+              Available At Just ₹17,999/-
+            </p>
+
+            {/* APPLY NOW */}
+            <button
+              onClick={() => setOpenForm(true)}
+              className="
+                mt-8
+                group
+                inline-flex items-center gap-3
+                px-10 py-4
+                rounded-2xl
+                font-semibold
+                text-white
+                bg-gradient-to-r
+                from-(--color-primary)
+                to-(--color-secondary)
+                hover:scale-105
+                transition-all duration-300
+                shadow-[0_10px_40px_rgba(0,102,255,0.18)]
+                text-md md:text-xl
+              "
+            >
+              Apply Now
+
+              <PiArrowRightBold
+                size={18}
+                className="
+                  group-hover:translate-x-1
+                  transition
+                "
+              />
+            </button>
+
+          </motion.div>
         </div>
       </div>
+
+      {/* STUDENT QUERY FORM */}
+      <StudentQueryForm
+        isOpen={openForm}
+        onClose={() => setOpenForm(false)}
+      />
+
     </section>
   );
 }

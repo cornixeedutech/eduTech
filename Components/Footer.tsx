@@ -15,9 +15,7 @@ import axios from "axios";
 
 const socialIcons = [
   { icon: <InstagramIcon />, name: "Instagram", link: "https://www.instagram.com/cornixe.in?igsh=aXoxdWdoYnQxNTR0&utm_source=qr" },
-  { icon: <FacebookIcon />, name: "Facebook", link: "#" },
-  { icon: <TwitterIcon />, name: "Twitter", link: "#" },
-  { icon: <LinkedInIcon />, name: "LinkedIn", link: "#" },
+  { icon: <LinkedInIcon />, name: "LinkedIn", link: "https://www.linkedin.com/company/cornixe-official/posts/" },
 ];
 
 export default function Footer() {
