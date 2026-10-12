@@ -189,7 +189,7 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
   }, []);
 
   const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
-  const isAdmin = session?.user?.email === adminEmail;
+  const isAdmin = session?.user?.is_admin === true;
 
   return (
     <>
@@ -406,12 +406,17 @@ const Navbar = ({ onOpenSidebar }: NavbarProps) => {
                       </Link>
 
                       <button
-                        onClick={() => signOut()}
-                        className="w-full flex items-center gap-2 px-3 py-2 hover:bg-red-50 text-sm text-red-500"
-                      >
-                        <LogOutIcon size={16} />
-                        Logout
-                      </button>
+  type="button"
+  onClick={() =>
+    signOut({
+      callbackUrl: "/",
+    })
+  }
+  className="w-full flex items-center gap-2 px-3 py-2 hover:bg-red-50 text-sm text-red-500"
+>
+  <LogOutIcon size={16} />
+  Logout
+</button>
                     </motion.div>
                   )}
                 </AnimatePresence>

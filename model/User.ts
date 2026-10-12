@@ -6,6 +6,10 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     phone: { type: String, required: true },
     password: { type: String, required: true },
+     is_admin: {
+    type: Boolean,
+    default: false,
+  },
 
     // 🔥 NEW FIELD
     purchasedCourses: [
@@ -18,6 +22,7 @@ const UserSchema = new mongoose.Schema(
     ],
   },
   { timestamps: true }
+  
 );
 
 export default mongoose.models.User ||

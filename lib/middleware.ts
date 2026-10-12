@@ -1,59 +1,30 @@
-// middleware.ts
 
-import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { getToken } from "next-auth/jwt";
 
-export default withAuth(
-  function middleware(req) {
-    const token = req.nextauth.token;
+export async function middleware(request: NextRequest) {
+  const token = await getToken({
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET,
+  });
 
-    const path = req.nextUrl.pathname;
-
-    // ✅ ADMIN ONLY
-    if (path.startsWith("/admin")) {
-      if (token?.role !== "admin") {
-        return NextResponse.redirect(
-          new URL("/", req.url)
-        );
-      }
-    }
-
-    return NextResponse.next();
-  },
-
-  {
-    callbacks: {
-      authorized: ({ token, req }) => {
-        const path = req.nextUrl.pathname;
-
-        // ✅ PUBLIC ROUTES
-        if (
-          path === "/" ||
-          path.startsWith("/courses") ||
-          path.startsWith("/about") ||
-          path.startsWith("/contact") ||
-          path.startsWith("/privacy-policy") ||
-          path.startsWith("/terms-and-conditions")
-        ) {
-          return true;
-        }
-
-        // ✅ REQUIRE LOGIN
-        return !!token;
-      },
-    },
-
-    pages: {
-      signIn: "/login",
-    },
+  // Protect the admin area
+  if (!token) {
+    return NextResponse.redirect(
+      new URL("/login", request.url)
+    );
   }
-);
+
+  if (token.role !== "admin") {
+    return NextResponse.redirect(
+      new URL("/", request.url)
+    );
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: [
-    "/admin/:path*",
-    "/dashboard/:path*",
-    "/profile/:path*",
-    "/my-courses/:path*",
-  ],
+  matcher: ["/cornixeAdminTech/:path*"],
 };
