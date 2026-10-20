@@ -39,10 +39,10 @@ const leadershipTeam = [
 
   {
     name: "Hemanth Kumar",
-    role: "CSO",
+    role: "CGO",
     image: HemanthImage,
     description:
-      "Hemanth Kumar, CSO of CORNIXE, drives long-term growth by aligning innovation, strategy, and market opportunities.",
+      "Hemanth Kumar, CGO of CORNIXE, drives long-term growth by aligning innovation, strategy, and market opportunities.",
   },
 ];
 
