@@ -17,7 +17,7 @@ const testimonials = [
     review:
       "Cornixe completely changed the way I learn. The mentorship and real-world projects helped me build confidence and become industry-ready.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Hariketan",
@@ -25,7 +25,7 @@ const testimonials = [
     review:
       "Joining Cornixe was worth every rupee. The sessions are practical, and the mentors actually guide you step-by-step.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Eswar",
@@ -33,7 +33,7 @@ const testimonials = [
     review:
       "What I liked most about Cornixe is the hands-on approach. You don’t just learn—you build real projects that matter.",
     rating: 4,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Vineeth",
@@ -41,7 +41,7 @@ const testimonials = [
     review:
       "Cornixe gave me clarity in my career path. The support team and mentors are always available when you need help.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
 
   // 🔥 NEW STRONG REVIEWS
@@ -51,7 +51,7 @@ const testimonials = [
     review:
       "Cornixe helped me go from beginner to confident developer. The projects I built here actually helped me crack interviews.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Priya Nair",
@@ -59,7 +59,7 @@ const testimonials = [
     review:
       "The best part about Cornixe is the structured learning path. Everything is clear, focused, and easy to follow.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Akash Sharma",
@@ -67,7 +67,7 @@ const testimonials = [
     review:
       "I gained practical skills and real confidence through Cornixe. It’s not just theory—it’s real industry-level learning.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Sneha Reddy",
@@ -75,7 +75,7 @@ const testimonials = [
     review:
       "Cornixe made learning simple and effective. The mentorship and community support are truly next level.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
   {
     name: "Karthik Sai",
@@ -83,7 +83,7 @@ const testimonials = [
     review:
       "Because of Cornixe, I now feel ready for real-world challenges. The platform genuinely prepares you for your career.",
     rating: 5,
-    link: "https://www.google.com/maps",
+    link: "https://share.google/99FoKSMCku5PiVcEh",
   },
 ];
 
